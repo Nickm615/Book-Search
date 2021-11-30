@@ -13,9 +13,19 @@ module.exports = {
     if (!foundUser) {
       return res.status(400).json({ message: 'Cannot find a user with this id!' });
     }
-
     res.json(foundUser);
   },
+
+  // router.get('/register', async (req, res) => {
+  //   try {
+  
+   
+  //     res.render('register');
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
+  // });
+
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
     const user = await User.create(body);

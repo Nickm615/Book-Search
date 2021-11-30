@@ -18,4 +18,12 @@ type Book {
     title: String!
 }
 
+type Auth {
+    token: ID!
+    user: User
+}
+
+type Query {
+    user(username: String!, _id: ID!): User
+}
 `

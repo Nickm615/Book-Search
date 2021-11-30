@@ -6,7 +6,8 @@ const resolvers = {
     Query: {
         //replaces getSingleUser in user-controller
         me: async (parents, {_id}) => {
-            return User.findOne({_id})
+          const userData = await User.findOne({_id});
+          return userData;
         }
     },
     Mutation: {
@@ -36,3 +37,5 @@ const resolvers = {
       
     }
 }
+
+module.exports = resolvers;

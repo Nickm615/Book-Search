@@ -25,13 +25,12 @@ type Auth {
 }
 
 type Query {
-    users: [User]
-    user(username: String!, _id: ID!): User
-    me: User
-    book: Book
+    me(_id:ID!): User
 }
 type Mutation{
     addUser(username: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 }
 `
+
+module.exports = typeDefs;

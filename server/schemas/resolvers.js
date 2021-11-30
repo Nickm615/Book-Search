@@ -1,9 +1,16 @@
-const { User } = require('../models');
+const { AutheitcationError } = require('apollo-server-express');
+const { User, Book } = require('../models');
+const { signToken } = require
 
 const resolvers = {
     Query: {
-        oneUser: async () => {
-            return await User.find({})
-        }
+        //replaces getSingleUser in user-controller
+        user: async (parent, { username }) => {
+            const foundUser =  await User.findOne({$or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+            }).populate();
+            return foundUser;
+        },
+
+
     }
 }
